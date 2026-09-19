@@ -1,0 +1,1693 @@
+/* =====================================
+   CONFIGURACIÓN GENERAL
+====================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background: #050507;
+    color: #fff;
+}
+
+
+/* =====================================
+   PANTALLAS
+====================================== */
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    opacity: 1;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.oculto {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+
+/* =====================================
+   BOTONES
+====================================== */
+
+button {
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd95a,
+            #e8aa20
+        );
+
+    color: #382300;
+
+    font-family: inherit;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 208, 50, .25);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255, 208, 50, .4);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+
+/* =====================================
+   ESTRELLAS
+====================================== */
+
+.estrellas {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1.5px
+        );
+
+    background-size: 75px 75px;
+
+    opacity: .35;
+
+    animation:
+        estrellasMover
+        12s linear infinite;
+}
+
+@keyframes estrellasMover {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(30px);
+    }
+
+}
+
+
+/* =====================================
+   INICIO
+====================================== */
+
+.inicio {
+    background:
+        radial-gradient(
+            circle at center,
+            #17131b 0%,
+            #08070a 50%,
+            #020203 100%
+        );
+}
+
+.intro {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(90%, 600px);
+
+    text-align: center;
+
+    animation:
+        aparecer
+        1.5s ease;
+}
+
+.estrella {
+    margin-bottom: 25px;
+
+    color: #ffe27a;
+
+    font-size: 45px;
+
+    animation:
+        brillar
+        2s ease-in-out infinite;
+}
+
+#textoIntro {
+    margin-bottom: 30px;
+
+    color:
+        rgba(255,255,255,.8);
+
+    font-size:
+        clamp(19px, 4vw, 27px);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   NACIMIENTO DEL GIRASOL
+====================================== */
+
+#florPantalla {
+    background:
+        linear-gradient(
+            180deg,
+            #080a14 0%,
+            #151427 55%,
+            #101b12 100%
+        );
+}
+
+.escena-flor {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================
+   MENSAJE DEL GIRASOL
+====================================== */
+
+.mensaje-flor {
+    position: absolute;
+
+    top: 9%;
+
+    width: 92%;
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+.mensaje-flor p {
+    color:
+        rgba(255,255,255,.7);
+
+    font-size:
+        clamp(16px, 3vw, 22px);
+
+    line-height: 1.5;
+}
+
+.mensaje-flor h1 {
+    margin-top: 10px;
+
+    font-size:
+        clamp(28px, 6vw, 50px);
+
+    line-height: 1.2;
+}
+
+.mensaje-flor span {
+    color: #ffd83d;
+}
+
+
+/* =====================================
+   GIRASOL COMPLETO
+====================================== */
+
+.flor-grande {
+    position: absolute;
+
+    left: 50%;
+    bottom: 12%;
+
+    width: 230px;
+    height: 350px;
+
+    transform:
+        translateX(-50%);
+
+    transform-origin:
+        bottom center;
+
+    z-index: 5;
+}
+
+
+/* =====================================
+   CABEZA DEL GIRASOL
+====================================== */
+
+.petalos-flor {
+    position: absolute;
+
+    left: 50%;
+    top: 5px;
+
+    width: 170px;
+    height: 170px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 4;
+
+    animation:
+        florCabezaFlotar
+        4s ease-in-out infinite;
+}
+
+.petalos-flor span {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 70px;
+    height: 92px;
+
+    margin-left: -35px;
+    margin-top: -88px;
+
+    transform-origin:
+        50% 100%;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe970,
+            #f6c41d
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(255,213,60,.25);
+}
+
+
+/* =====================================
+   DISTRIBUCIÓN DE PÉTALOS
+====================================== */
+
+.petalos-flor span:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.petalos-flor span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.petalos-flor span:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.petalos-flor span:nth-child(4) {
+    transform: rotate(135deg);
+}
+
+.petalos-flor span:nth-child(5) {
+    transform: rotate(180deg);
+}
+
+.petalos-flor span:nth-child(6) {
+    transform: rotate(225deg);
+}
+
+.petalos-flor span:nth-child(7) {
+    transform: rotate(270deg);
+}
+
+.petalos-flor span:nth-child(8) {
+    transform: rotate(315deg);
+}
+
+
+/* =====================================
+   CENTRO DEL GIRASOL
+====================================== */
+
+.centro-flor {
+    position: absolute;
+
+    top: 60px;
+    left: 50%;
+
+    width: 65px;
+    height: 65px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #3d2100 0 25%,
+            #704000 26% 60%,
+            #4b2700 61%
+        );
+
+    z-index: 10;
+
+    box-shadow:
+        0 0 15px
+        rgba(0,0,0,.45);
+}
+
+
+/* =====================================
+   TALLO DEL GIRASOL
+====================================== */
+
+.tallo-grande {
+    position: absolute;
+
+    left: 50%;
+
+    /*
+       El centro termina aproximadamente
+       en Y = 125px.
+
+       El tallo comienza exactamente ahí.
+    */
+
+    top: 125px;
+
+    bottom: auto;
+
+    width: 9px;
+    height: 225px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            to right,
+            #1d5122,
+            #4e963b,
+            #245e29
+        );
+
+    border-radius: 20px;
+
+    z-index: 1;
+}
+
+
+/* =====================================
+   HOJAS DEL GIRASOL
+====================================== */
+
+.flor-grande .hoja {
+    position: absolute;
+
+    width: 75px;
+    height: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5a9e46,
+            #275e2a
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    z-index: 3;
+}
+
+.flor-grande .hoja1 {
+    left: 32px;
+    bottom: 90px;
+
+    transform:
+        rotate(20deg);
+}
+
+.flor-grande .hoja2 {
+    right: 32px;
+    bottom: 145px;
+
+    transform:
+        scaleX(-1)
+        rotate(20deg);
+}
+
+
+/* =====================================
+   DEDICATORIA
+====================================== */
+
+.dedicatoria {
+    position: absolute;
+
+    bottom: 5%;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-style: italic;
+
+    font-size: 17px;
+
+    z-index: 20;
+}
+
+
+/* =====================================
+   ANIMACIÓN DEL GIRASOL
+====================================== */
+
+@keyframes florCabezaFlotar {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-6px);
+    }
+
+}
+
+
+/* =====================================
+   REVELACIÓN
+====================================== */
+
+#revelacion {
+    background:
+        radial-gradient(
+            circle at center,
+            #221d15,
+            #090809 70%
+        );
+}
+
+.contenido {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(92%, 700px);
+
+    text-align: center;
+}
+
+.pequeno {
+    color:
+        rgba(255,255,255,.65);
+
+    font-size:
+        clamp(14px, 3vw, 18px);
+
+    line-height: 1.6;
+}
+
+#revelacion h1 {
+    margin: 20px 0;
+
+    font-size:
+        clamp(45px, 10vw, 90px);
+
+    line-height: .95;
+}
+
+#revelacion h1 span {
+    color: #ffd83d;
+}
+
+.texto {
+    max-width: 600px;
+
+    margin:
+        0 auto 30px;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size:
+        clamp(16px, 3vw, 20px);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   CARTA
+====================================== */
+
+.carta {
+    align-items: flex-start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        35px 15px 145px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21170e,
+            #0d0b09
+        );
+}
+
+.sobre {
+    width: min(94%, 680px);
+
+    margin: 0 auto;
+}
+
+
+/* =====================================
+   PAPEL DE LA CARTA
+====================================== */
+
+.carta .hoja {
+    width: 100%;
+
+    padding:
+        38px clamp(22px, 5vw, 55px);
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5,
+            #f8efd8
+        );
+
+    color:
+        #382d20;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.45);
+}
+
+.flor-carta {
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 50px;
+}
+
+.fecha {
+    color: #7d6747;
+
+    text-align: center;
+
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.carta .hoja h2 {
+    margin:
+        15px 0 25px;
+
+    color:
+        #49351e;
+
+    text-align: center;
+
+    font-size:
+        clamp(25px, 5vw, 35px);
+}
+
+.carta .hoja p {
+    margin-bottom: 17px;
+
+    font-size:
+        clamp(15px, 2.5vw, 18px);
+
+    line-height: 1.75;
+}
+
+.destacado {
+    color:
+        #6a4a15;
+
+    font-weight: bold;
+}
+
+.respuesta {
+    margin:
+        10px 0 25px !important;
+
+    color:
+        #b58212;
+
+    text-align: center;
+
+    font-size:
+        38px !important;
+
+    font-style: italic;
+}
+
+.firma {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(100,70,30,.2);
+
+    text-align: right;
+
+    line-height: 1.8;
+
+    padding-bottom: 10px;
+}
+
+.firma strong {
+    display: block;
+
+    font-size: 20px;
+}
+
+
+/* =====================================
+   BOTÓN DE LA CARTA
+====================================== */
+
+#continuar {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 100;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================
+   RECUERDO / FOTO
+====================================== */
+
+.recuerdo {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        35px 15px 120px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #201b13,
+            #09090a 75%
+        );
+}
+
+.recuerdo-contenido {
+    position: relative;
+
+    z-index: 20;
+
+    width: min(92%, 700px);
+
+    margin: 0 auto;
+}
+
+.foto {
+    position: relative;
+
+    z-index: 30;
+
+    width:
+        min(76vw, 370px);
+
+    margin:
+        20px auto 25px;
+
+    padding: 8px;
+
+    background: #fff;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.5);
+
+    transform:
+        rotate(-1deg);
+
+    animation:
+        aparecerFoto
+        1.2s ease forwards;
+}
+
+.marco-foto {
+    width: 100%;
+
+    overflow: hidden;
+
+    line-height: 0;
+
+    background: #ddd;
+}
+
+.marco-foto img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 390px;
+
+    object-fit: cover;
+}
+
+.pie-foto {
+    margin-top: 9px;
+
+    color: #5c5042;
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+.texto-foto {
+    max-width: 600px;
+
+    margin:
+        0 auto 25px;
+
+    color:
+        rgba(255,255,255,.8);
+
+    font-size:
+        clamp(15px, 3vw, 19px);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   JARDÍN
+====================================== */
+
+.jardin {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050817 0%,
+            #10182d 55%,
+            #09120c 100%
+        );
+}
+
+.luna {
+    position: absolute;
+
+    top: 9%;
+    right: 10%;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    background:
+        #fff5c7;
+
+    box-shadow:
+        0 0 35px
+        rgba(255,245,190,.35);
+}
+
+.luna::after {
+    content: "";
+
+    position: absolute;
+
+    top: -8px;
+    left: 15px;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    background:
+        #070a16;
+}
+
+.mensaje-jardin {
+    position: absolute;
+
+    top: 12%;
+    left: 50%;
+
+    width: 90%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+.mensaje-jardin p {
+    margin-bottom: 8px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size:
+        clamp(15px, 3vw, 20px);
+}
+
+.mensaje-jardin h2 {
+    color: #fff;
+
+    font-size:
+        clamp(26px, 6vw, 43px);
+
+    line-height: 1.25;
+}
+
+
+/* =====================================
+   CAMPO
+====================================== */
+
+#campo {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height: 58%;
+
+    display: flex;
+
+    justify-content:
+        space-evenly;
+
+    align-items: flex-end;
+
+    gap: 4px;
+
+    padding:
+        0 10px 25px;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* =====================================
+   FLORES PEQUEÑAS
+====================================== */
+
+.flor-pequena {
+    position: relative;
+
+    width: 48px;
+    height: var(--altura);
+
+    flex:
+        0 0 48px;
+
+    transform-origin:
+        bottom center;
+
+    opacity: 0;
+
+    animation:
+        crecerFlor
+        1.8s
+        cubic-bezier(.2,.8,.2,1)
+        var(--delay)
+        forwards;
+}
+
+@keyframes crecerFlor {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(.05);
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            translateY(-5px)
+            scale(1.04);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+.flor-pequena.balanceando {
+    animation:
+        balancearFlor
+        var(--balance-duration)
+        ease-in-out
+        infinite;
+}
+
+@keyframes balancearFlor {
+
+    0%,
+    100% {
+        transform:
+            rotate(
+                calc(
+                    var(--balance) * -1
+                )
+            );
+    }
+
+    50% {
+        transform:
+            rotate(
+                var(--balance)
+            );
+    }
+
+}
+
+
+/* =====================================
+   CABEZA DE LAS FLORES PEQUEÑAS
+====================================== */
+
+.flor-pequena .cabeza {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 48px;
+    height: 48px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #4b2800 0 18%,
+            #704000 19% 27%,
+            transparent 28%
+        ),
+
+        conic-gradient(
+            #ffd83d 0deg 20deg,
+            #f5c522 20deg 40deg,
+            #ffd83d 40deg 60deg,
+            #f5c522 60deg 80deg,
+            #ffd83d 80deg 100deg,
+            #f5c522 100deg 120deg,
+            #ffd83d 120deg 140deg,
+            #f5c522 140deg 160deg,
+            #ffd83d 160deg 180deg,
+            #f5c522 180deg 200deg,
+            #ffd83d 200deg 220deg,
+            #f5c522 220deg 240deg,
+            #ffd83d 240deg 260deg,
+            #f5c522 260deg 280deg,
+            #ffd83d 280deg 300deg,
+            #f5c522 300deg 320deg,
+            #ffd83d 320deg 340deg,
+            #f5c522 340deg 360deg
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(255,215,60,.35);
+
+    z-index: 3;
+}
+
+
+/* =====================================
+   TALLOS PEQUEÑOS
+====================================== */
+
+.flor-pequena .tallo {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 5px;
+
+    height:
+        calc(
+            100% - 25px
+        );
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            to right,
+            #1c5022,
+            #4e963b,
+            #245e29
+        );
+
+    border-radius: 10px;
+
+    z-index: 1;
+}
+
+
+/* =====================================
+   HOJAS DE FLORES PEQUEÑAS
+====================================== */
+
+.flor-pequena::before,
+.flor-pequena::after {
+    content: "";
+
+    position: absolute;
+
+    bottom:
+        calc(
+            var(--altura) * .35
+        );
+
+    width: 22px;
+    height: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5da94a,
+            #28662c
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    z-index: 2;
+}
+
+.flor-pequena::before {
+    left: 4px;
+
+    transform:
+        rotate(25deg);
+}
+
+.flor-pequena::after {
+    right: 4px;
+
+    transform:
+        scaleX(-1)
+        rotate(25deg);
+}
+
+
+/* =====================================
+   SUELO
+====================================== */
+
+#campo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 25px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(5,35,12,.6)
+        );
+}
+
+
+/* =====================================
+   BOTÓN FINAL
+====================================== */
+
+#finalBtn {
+    position: absolute;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 1000;
+
+    white-space: nowrap;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================
+   PANTALLA FINAL
+====================================== */
+
+.final {
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #221c12,
+            #070708 75%
+        );
+}
+
+.final-contenido {
+    width:
+        min(92%, 650px);
+
+    text-align: center;
+}
+
+.flor-final {
+    margin-bottom: 10px;
+
+    font-size: 70px;
+
+    animation:
+        florFlotar
+        3s ease-in-out infinite;
+}
+
+.final h1 {
+    margin:
+        15px 0 25px;
+
+    font-size:
+        clamp(40px, 9vw, 70px);
+
+    line-height: 1;
+}
+
+.final h1 span {
+    color: #ffd83d;
+}
+
+.final-texto {
+    max-width: 600px;
+
+    margin:
+        0 auto 20px;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size:
+        clamp(16px, 3vw, 20px);
+
+    line-height: 1.7;
+}
+
+.frase-final {
+    color:
+        #ffe070;
+
+    font-size:
+        clamp(17px, 3.5vw, 23px);
+
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+.corazones {
+    margin:
+        25px 0;
+
+    font-size: 25px;
+}
+
+.firma-final {
+    color:
+        rgba(255,255,255,.7);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   BOTÓN DE MÚSICA
+====================================== */
+
+.musica {
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    bottom: auto;
+
+    display: none;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    z-index: 99999;
+
+    font-size: 20px;
+}
+
+
+/* =====================================
+   PÉTALOS FINALES
+====================================== */
+
+#petalos {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1500;
+}
+
+.petalo {
+    position: absolute;
+
+    top: -30px;
+
+    width: 10px;
+    height: 15px;
+
+    border-radius:
+        80% 20% 80% 20%;
+
+    background:
+        #ffd83d;
+
+    opacity: .7;
+
+    animation:
+        caerPetalo
+        linear
+        forwards;
+}
+
+@keyframes caerPetalo {
+
+    0% {
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(35px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-35px)
+            rotate(360deg);
+    }
+
+}
+
+
+/* =====================================
+   ANIMACIONES GENERALES
+====================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+@keyframes brillar {
+
+    0%,
+    100% {
+        opacity: .5;
+
+        transform:
+            scale(.95);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.1);
+    }
+
+}
+
+@keyframes florFlotar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+
+}
+
+@keyframes aparecerFoto {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            rotate(-4deg)
+            scale(.92);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(-1deg)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================
+   TELÉFONOS
+====================================== */
+
+@media (max-width: 600px) {
+
+    .mensaje-flor {
+        top: 8%;
+    }
+
+
+    /* ================================
+       GIRASOL EN MÓVIL
+    ================================= */
+
+    .flor-grande {
+        bottom: 13%;
+
+        transform:
+            translateX(-50%)
+            scale(.72);
+    }
+
+
+    .dedicatoria {
+        bottom: 4%;
+    }
+
+
+    /* ================================
+       FOTO
+    ================================= */
+
+    .foto {
+        width:
+            min(78vw, 320px);
+
+        margin:
+            18px auto 23px;
+
+        padding: 7px;
+    }
+
+    .marco-foto img {
+        max-height: 300px;
+    }
+
+
+    /* ================================
+       LUNA
+    ================================= */
+
+    .luna {
+        width: 55px;
+        height: 55px;
+
+        right: 8%;
+    }
+
+    .luna::after {
+        width: 55px;
+        height: 55px;
+
+        left: 12px;
+    }
+
+
+    /* ================================
+       JARDÍN
+    ================================= */
+
+    #campo {
+        height: 52%;
+
+        padding:
+            0 4px 20px;
+
+        gap: 0;
+    }
+
+    .flor-pequena {
+        width: 35px;
+
+        flex:
+            0 0 35px;
+    }
+
+    .flor-pequena .cabeza {
+        width: 38px;
+        height: 38px;
+    }
+
+    .flor-pequena .tallo {
+        width: 4px;
+
+        height:
+            calc(
+                100% - 20px
+            );
+    }
+
+    .flor-pequena::before,
+    .flor-pequena::after {
+        width: 17px;
+        height: 9px;
+    }
+
+
+    /* ================================
+       BOTÓN FINAL
+    ================================= */
+
+    #finalBtn {
+        bottom: 20px;
+
+        max-width: 90%;
+    }
+
+
+    /* ================================
+       CARTA
+    ================================= */
+
+    .carta {
+        padding:
+            25px 10px 150px;
+    }
+
+    .carta .hoja {
+        padding:
+            30px 22px;
+    }
+
+    #continuar {
+        bottom: 18px;
+
+        max-width: 90%;
+    }
+
+
+    /* ================================
+       BOCINA
+    ================================= */
+
+    .musica {
+        top: 12px;
+        right: 12px;
+        bottom: auto;
+    }
+
+}
+
+
+/* =====================================
+   PANTALLAS BAJAS
+====================================== */
+
+@media (max-height: 650px) {
+
+    .mensaje-jardin {
+        top: 7%;
+    }
+
+    #campo {
+        height: 52%;
+    }
+
+    .flor-grande {
+        bottom: 10%;
+
+        transform:
+            translateX(-50%)
+            scale(.60);
+    }
+
+}
